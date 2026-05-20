@@ -1,82 +1,75 @@
 # MEMORY — Ze-Hierarchy
 
-**История решений, открытые вопросы, запреты.**
+**Decision history, open questions, bans.**
 
 ---
 
-## 2026-05-20: Создание проекта
+## 2026-05-20: Project created
 
-**Решение:** Создан отдельный подпроект `Ze-Hierarchy` внутри Ze.
-**Причина:** Эксперимент по проверке Ze-эффекта на физических RNG-автоматах — отдельная линия, не смешивать с теорией Ze (Poincare) и с existing simulator.
+**Decision:** Separate subproject `Ze-Hierarchy` inside Ze.
+**Reason:** Experiment testing Ze effect on physical RNG automata — separate line, not mixing with Ze theory (Poincare) or existing simulators.
 
-**Структура:** 
-- Core-файлы на верхнем уровне (CONCEPT, PARAMETERS, TODO, MAP, STATE, MEMORY, _pi.md)
-- simulator/ — Python-симуляция
-- analysis/ — метрики и визуализация
-- hardware/ — железо
-
----
-
-## 2026-05-20: Тип автоматов
-
-**Решение:** Bristlebots (вибрационные роботы) с LED + фотодиод для фототаксиса.
-**Причина:** Дешевизна ($0.50–0.75/шт), чисто механическая случайность, можно сделать 120 шт за $350.
-
-**Альтернативы, которые рассматривались:**
-- ESP32-роботы ($15/шт) — дорого для 120 шт
-- Шары на вибростоле — нет индивидуальности, нельзя пометить возраст
-- Симуляция — не даёт физического эффекта (если Ze — физический феномен)
+**Structure:**
+- Core files at root level (CONCEPT, PARAMETERS, TODO, MAP, STATE, MEMORY)
+- simulator/ — Python simulation
+- analysis/ — metrics and visualization
+- hardware/ — prototype
 
 ---
 
-## 2026-05-20: Возраст как единственная переменная
+## 2026-05-20: Robot type
 
-**Решение:** Возраст задаётся RC-таймером (суперконденсатор 1Ф + 10МОм, τ ≈ 115 дней).
-**Причина:** RC — аналоговая, необратимая, предсказуемая «память возраста» без микроконтроллера. Возраст = календарное время с момента производства.
+**Decision:** Bristlebots (vibration robots) with LED + photodiode for phototaxis.
+**Reason:** Cheap ($0.50-0.75/unit), pure mechanical randomness, can build 120 for $540.
 
-**Запрет:** Не заменять возраст разрядом батарейки.
-**Запрет:** Не заменять возраст программным счётчиком на МК (это не «физический возраст»).
-
----
-
-## 2026-05-20: Питание
-
-**Решение:** Сменные батарейки (Li-Po 100 мАч) + зарядная станция.
-**Причина:** Qi-поле 60×60 см нереалистично за $30 (PR-критика).
-Сменные батарейки дешевле и надёжнее.
-
-**Запрет:** Qi-зарядка — не использовать (артефакт бюджета).
-
-## 2026-05-20: Гипотеза иерархии
-
-**Решение:** Новые (яркий LED) — лидеры, старые (тусклый LED) — ведомые.
-**Ожидание:** Спонтанная иерархия следования: новые в центре, старые по периферии.
-**Главный тест:** HI > 0.5 для смеси возрастов, HI ≈ 0.5 для одного возраста.
+**Alternatives considered:**
+- ESP32-robots ($15/unit) — too expensive for 120
+- Balls on vibration table — no individual marking, no age tracking
+- Pure simulation — no physical effect (if Ze is physical)
 
 ---
 
-## 2026-05-20: Переименование «читинг» → «интервенция»
+## 2026-05-20: Age as only variable
 
-**Решение:** Термин «читинг» заменён на «интервенция» во всех core-файлах.
-**Причина:** «Интервенция» — научный термин из каузального вывода (do-оператор Pearl),
-без моральной окраски. Пара: интервенция (вмешательство) vs мониторинг (наблюдение).
+**Decision:** Age set by RC timer (supercapacitor 1F + 10MΩ, τ ≈ 115 days).
+**Reason:** RC — analog, irreversible, predictable "age memory" without microcontroller. Age = calendar time since manufacturing.
 
----
-
-## 2026-05-20: Правки после peer-review
-
-1. **Столкновения:** добавлен sound repulsor (избегание, не физика)
-2. **Qi-зарядка:** заменена на сменные батарейки (нереалистичный бюджет)
-3. **Стат. мощность:** 2×60 вместо 4×30
-4. **Разброс JFET:** заменён на LM393 компаратор
-5. **Масса:** балласт 15±0.5 г
-6. **RC-возраст:** ADC-измерение V_cond через ESP32
-7. **Контрольные тесты:** A–E
+**Ban:** Do NOT replace age with battery discharge.
+**Ban:** Do NOT replace age with software counter (not "physical age").
 
 ---
 
-## Открытые вопросы
+## 2026-05-20: Power
 
-- Нужна ли модель столкновений между ботами?
-- Какой коэффициент фототаксиса (K_phototaxis) оптимален?
-- Нужен ли noise для направления?
+**Decision:** Swappable batteries (Li-Po 100 mAh) + charging station.
+**Reason:** Qi pad 60×60 cm unrealistic for $30 (PR criticism). Swappable batteries cheaper and more reliable.
+
+**Ban:** Qi charging — do not use (budget artifact).
+
+---
+
+## 2026-05-20: Rename "cheating" → "intervention"
+
+**Decision:** Term "cheating" replaced with "intervention" in all core files.
+**Reason:** "Intervention" is a scientific term from causal inference (Pearl's do-operator), no moral connotation. Pair: intervention (act) vs monitoring (observe).
+
+---
+
+## 2026-05-20: Post-PR fixes
+
+1. **Collisions:** added sound repulsor + physics collision model
+2. **Qi charging:** replaced with swappable batteries
+3. **Statistical power:** 2×60 instead of 4×30
+4. **JFET replaced:** LM393 comparator (stable threshold)
+5. **Mass:** ballast 15±0.5 g
+6. **RC age:** ADC measurement via ESP32
+7. **Control tests:** A–F
+8. **GitHub:** https://github.com/djabbat/ze-hierarchy
+
+---
+
+## Open Questions
+
+- Is vibrational clustering (Mahadevan 2012) necessary for HI > 0.5 in real bristlebots?
+- Optimal K_photo for real photodiodes?
+- Does ESP-NOW TDMA work at 120 devices without packet loss?

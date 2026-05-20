@@ -1,119 +1,126 @@
 # PARAMETERS — Ze-Hierarchy
 
-## Параметры бота
+## Robot Parameters
 
-| Параметр | Значение | Описание |
+| Parameter | Value | Description |
 |---|---|---|
-| N | 120 | Всего ботов |
-| Групп | 2 | Новые (0 дней) vs Старые (30 дней) |
-| N_группа | 60 | Ботов в каждой группе |
-| Масса | 15 ± 0.5 г | Все боты с балластом до одинаковой массы |
+| N | 120 | Total robots |
+| Groups | 2 | New (0 days) vs Old (30 days) |
+| Per group | 60 | Robots per age group |
+| Mass | 15 ± 0.5 g | All with ballast to equal weight |
 
-### RC-таймер (возраст)
+### RC Timer (age)
 
-| Параметр | Значение | Примечание |
+| Parameter | Value | Notes |
 |---|---|---|
-| C | 1 Ф (суперконденсатор) | Ток утечки < 0.01 мА (измеряется ADC) |
-| R | 10 МОм ± 5% | — |
-| τ = RC | 10⁷ с ≈ 115.7 дней | V(t) = V₀·exp(-t/τ) |
-| V₀ | 5.0 В | Заряд при производстве |
-| V_LED_th | 1.8 В | Порог LED |
-| V_buzzer_th | 2.5 В | Порог зуммера (выше — 4 кГц, ниже — 1 кГц) |
-| ADC | ESP32, 12 бит | Измеряет реальное V_cond каждые 100 мс |
+| C | 1 F (supercapacitor) | Leakage < 0.01 mA (ADC-measured) |
+| R | 10 MΩ ± 5% | — |
+| τ = RC | 10⁷ s ≈ 115.7 days | V(t) = V₀·exp(-t/τ) |
+| V₀ | 5.0 V | Charged at manufacturing |
+| V_LED_th | 1.8 V | LED threshold |
+| V_buzzer_th | 2.5 V | Buzzer threshold (above = 4 kHz, below = 1 kHz) |
+| ADC | ESP32, 12-bit | Measures real V_cap every 100 ms |
 
-### Расчёт
+### Outputs by age
 
-| Возраст | V_cond | LED | Звук |
+| Age | V_cap | LED | Sound |
 |---|---|---|---|
-| 0 дней (новые) | 5.00 В | 1.00 (макс) | 4000 Гц (высокий) |
-| 7 дней | 4.70 В | 0.85 | 4000 Гц |
-| 30 дней (старые) | 3.85 В | 0.60 | 1000 Гц (низкий) |
+| 0 days (new) | 5.00 V | 1.00 (max) | 4000 Hz (high) |
+| 7 days | 4.70 V | 0.85 | 4000 Hz |
+| 30 days (old) | 3.85 V | 0.60 | 1000 Hz (low) |
 
-Переключение звука — **резкое** (компаратор LM393) при V_cond = 2.5 В.
+Sound switching: **sharp** (LM393 comparator) at V_cap = 2.5 V.
 
-### Фототаксис (притяжение)
+### Phototaxis (attraction)
 
-| Параметр | Значение | Описание |
+| Parameter | Value | Description |
 |---|---|---|
-| Радиус | 15 см | Дальность фотодиода |
-| K_фото | 0.5 | Слабое притяжение (не перекрывает репульсор) |
+| Range | 30 cm | Bright LED detection radius |
+| K_photo | 4.0 | Only old follow bright centers of mass |
 
-### Звуковой репульсор (отталкивание)
+### Sound Repulsor (collision avoidance)
 
-| Параметр | Значение | Описание |
+| Parameter | Value | Description |
 |---|---|---|
-| Радиус | 8 см | Ближе — отворачиваем |
-| K_репульс | 3.0 | Сила отворота |
-| Громкость | 1.0 (все) | Одинаковая у всех |
-| Частота новых | 4000 Гц | Резкий высокий |
-| Частота старых | 1000 Гц | Низкий гулкий |
-| Переход | Резкий (LM393) | Скачок при V_cond = 2.5 В |
+| Range | 3.0 cm | Buzzer heard within this radius → turn away |
+| K_repuls | 2.0 | Turn strength |
+| Volume | 1.0 (equal) | Same for all |
+| New frequency | 4000 Hz | High pitch |
+| Old frequency | 1000 Hz | Low pitch |
+| Transition | Sharp (LM393 at 2.5V) | Step change |
 
-### Радио (ESP-NOW)
+### Radio (ESP-NOW)
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| Модуль | ESP32-C3 (RISC-V) |
-| Пакет | ID (1Б) + V_ADC (2Б) + возраст_дни (2Б) + CRC (1Б) |
-| Интервал | 100 мс |
-| Питание | CR2032 (отдельно от RC и мотора) |
+| Module | ESP32-C3 (RISC-V) |
+| Packet | ID (1B) + V_cap_ADC (2B) + age_days (2B) + CRC (1B) = 6B |
+| Interval | 100 ms (TDMA: 10 ms slot per bot) |
+| Power | CR2032 (separate from RC and motor) |
 
-### Движение
+### Motion
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| v_base | 3 см/с |
-| v_max | 5 см/с |
+| v_base | 3 cm/s |
+| v_max | 5 cm/s |
 | noise_angle | 15° |
-| dt_симуляции | 0.01 с |
+| dt_simulation | 0.1 s |
 
-### Арена
+### Arena
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| Размер | 100 × 100 см |
-| Покрытие | Гладкий пластик, белый |
-| Звукоизоляция | Акустический поролон по краям |
-| Камера | 4K, 60fps (ELP/USB) | 120 см высота, объектив 6 мм |
-| GPU | Опционально (см. BOM) | Jetson Nano / RTX 3060 для real-time трекинга |
-| Микрофонный массив | 4 × MAX9814 по углам |
+| Size | 100 × 100 cm |
+| Surface | Smooth plastic, matte white |
+| Soundproofing | Acoustic foam on walls |
+| Camera | 4K, 60fps, 120cm height |
+| Microphone array | 4 × MAX9814 (corners) |
+| GPU (optional) | Jetson Nano / RTX 3060 for real-time tracking |
 
-### Метрики
+### Metrics
 
-| Метрика | Ожидание | Описание |
+| Metric | Expectation | Description |
 |---|---|---|
-| HI | >0.5 для C; 0.5 для A,B,D,E | Hierarchy Index |
-| R_leader | <20 см для новых; >25 см для старых | Радиус лидерства |
-| τ_conv | <120 с | Время конвергенции |
-| Δ_spectrum | >2:1 (4000 Гц / 1000 Гц) в центре | Акустическая метка |
+| HI | >0.5 for C; 0.5 for A,B,D,E | Hierarchy Index |
+| R_leader | <30 cm for new; >30 cm for old (approximately) | Leadership radius |
+| τ_conv | <120 s | Convergence time |
+| Δ_spectrum | >2:1 (4000/1000 Hz) in cluster center | Acoustic age map |
 
-### Контрольные тесты (A–E)
+### Control Tests (A–F)
 
-| Тест | N_новых | N_старых | LED/звук | Ожидаемый HI |
+| Test | N_new | N_old | LED/sound | Expected HI |
 |---|---|---|---|---|
-| A | 120 | 0 | вкл | 0.5 |
-| B | 0 | 120 | вкл | 0.5 |
-| C | 60 | 60 | вкл | **>0.5** |
-| D | 60 | 60 | **выкл** | 0.5 |
-| E | 60 | 60 | вкл (слепой) | 0.5 |
+| A | 120 | 0 | on | 0.5 |
+| B | 0 | 120 | on | 0.5 |
+| C | 60 | 60 | on | **>0.5** |
+| D | 60 | 60 | **off** | 0.5 |
+| E | 60 | 60 | on (blind) | 0.5 |
+| F | 60 old (recharged) | 60 new | on | >0.5 if Ze; 0.5 if electrical |
 
-### Бюджет
+### Budget
 
-| Компонент | Кол-во | Цена/шт | Итого |
+| Component | Qty | Unit price | Total |
 |---|---|---|---|
-| Суперконденсатор 1Ф 5.5В | 120 | $0.50 | $60 |
-| Резистор 10 МОм | 120 | $0.05 | $6 |
-| Компаратор LM393 | 120 | $0.15 | $18 |
-| LED 5 мм | 120 | $0.05 | $6 |
-| Пьезопищалка 5V | 120 | $0.10 | $12 |
-| Транзистор 2N3904 | 120 | $0.05 | $6 |
-| Мотор с эксцентриком | 120 | $0.20 | $24 |
 | ESP32-C3 | 120 | $1.50 | $180 |
-| Микрофон MAX9814 | 120 | $0.50 | $60 |
-| Батарейка CR2032 (ESP) | 120 | $0.30 | $36 |
-| Li-Po 100 мАч (мотор) | 120 | $0.50 | $60 |
-| Корпус + балласт (3D) | 120 | $0.50 | $60 |
-| Приёмник ESP32+USB | 1 | $3 | $3 |
-| Поролон акустический | 1 | $15 | $15 |
-| Пластик арены | 1 | $20 | $20 |
-| **Итого** | | | **~$566** |
+| Supercapacitor 1F | 120 | $0.50 | $60 |
+| Resistor 10 MΩ | 120 | $0.05 | $6 |
+| LM393 comparator | 120 | $0.15 | $18 |
+| LED 5mm | 120 | $0.05 | $6 |
+| Piezo buzzer | 120 | $0.10 | $12 |
+| Photodiode | 120 | $0.10 | $12 |
+| MAX9814 microphone | 120 | $0.50 | $60 |
+| 2N3904 transistor | 120 | $0.05 | $6 |
+| Pager motor | 120 | $0.20 | $24 |
+| Li-Po 100 mAh | 120 | $0.50 | $60 |
+| CR2032 + holder | 120 | $0.30 | $36 |
+| 3D-printed chassis + ballast | 120 | $0.50 | $60 |
+| **Subtotal robots** | | | **$540** |
+| 4K camera (ELP/USB) + lens | 1 | $80 | $80 |
+| Acoustic foam | 1 | $15 | $15 |
+| Arena plastic | 1 | $20 | $20 |
+| ESP32 receiver + USB | 1 | $5 | $5 |
+| Li-Po charging station | 1 | $15 | $15 |
+| **Subtotal arena** | | | **$135** |
+| **TOTAL (no GPU)** | | | **$675** |
+| **TOTAL (with Jetson Nano)** | | | **$875** |

@@ -1,39 +1,49 @@
 # STATE — Ze-Hierarchy
 
-**Дата:** 2026-05-20
-**Фаза:** 1 — Симуляция (завершена)
+**Date:** 2026-05-20
+**Phase:** 1 — Simulation (complete)
 
-## Ключевой результат
+## Key Result
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| **Максимальный HI** (seed=0) | **0.532** |
-| **Средний HI** (10 сидов) | 0.492 |
-| **dR макс** | +1.2 см (старые дальше от центра) |
-| **Направление эффекта** | Положительное (Ro > Rn) при 5/10 сидов |
+| **Max HI** (seed=0) | **0.532** |
+| **Mean HI** (10 seeds, 600 steps) | 0.492 |
+| **dR max** (old minus new distance from center) | +1.2 cm |
+| **Direction** | Positive (Ro > Rn) at 5/10 seeds |
+| **Speed** | 120 bots in ~30s (dt=0.1) |
 
-Эффект **seed-зависимый, слабый**. Причина: random walk новых равномерно распределяет их по арене, старые следуют за ними, но градиент плотности не успевает сформироваться.
+Effect is **seed-dependent, weak**. Reason: bristlebot random walk spreads new bots evenly across arena; old follow them but no density gradient forms.
 
-## Что не сработало
+## Simulation Performance
 
-| Подход | HI | Почему |
+| Config | Time |
+|---|---|
+| 20 bots, 60s real | ~1.5s |
+| 120 bots, 120s real | ~30s |
+
+## What Didn't Work
+
+| Approach | HI | Why |
 |---|---|---|
-| Градиент света (K=2.0, все боты) | 0.17 | Старые притягиваются друг к другу |
-| Только яркие (led>0.7) | 0.35 | Центр масс ярких = центр арены |
-| Ближайший яркий (K=8) | **0.53** | Лучший, но слабый |
-| Арена 40×40 | 0.06 | Инверсия (все в центре) |
-| Без шума | 0.15 | Слишком направленное движение |
+| Light gradient (K=2.0, all bots) | 0.17 | Old attract each other |
+| Bright only (led>0.7) | 0.35 | COM of bright = center of arena |
+| Nearest bright (K=8) | **0.53** | Best, but weak |
+| Arena 40×40 | 0.06 | Inversion (all crowd center) |
+| No noise | 0.15 | Too directional |
 
-## Почему HI нестабилен
+## Root Cause
 
-**Фундаментальная причина:** bristlebot с random walk не может сформировать устойчивый кластер. Новые разбегаются равномерно, старые следуют за ними — и все распределяются равномерно по арене. Иерархия не возникает, потому что нет "центра притяжения".
+Bristlebot random walk cannot form a stable cluster in simulation. New bots spread evenly, old follow — density gradient never forms. **In real physics**, bristlebot vibrational clustering (Mahadevan 2012) creates spontaneous clustering that simulation doesn't capture. Real experiment may show stronger effect.
 
-**Решение для железа:** В реальной физике bristlebot clustering (вихревой миллинг Mahadevan 2012) создаёт спонтанную кластеризацию даже без фототаксиса. В симуляции этого нет, потому что нет модели вибрационных взаимодействий.
+## Next Steps
 
-**Вывод:** Симуляция показала, что эффект принципиально возможен (HI до 0.532), но слаб. В реальном физическом эксперименте (bristlebots с реальной вибрацией и столкновениями) эффект может быть сильнее из-за спонтанной кластеризации.
+- [x] Concept, PARAMETERS, simulation
+- [ ] Hardware prototype
+- [ ] Physical experiment
 
-## Что дальше
+## Current deliverables
 
-- [x] Концепт, PARAMETERS, симуляция
-- [ ] Прототип (hardware/)
-- [ ] Физический эксперимент
+- GitHub: https://github.com/djabbat/ze-hierarchy
+- Grant: Shuttleworth Flash Grant (submitted 2026-05-20)
+- Publication: HardwareX + arXiv (planned)

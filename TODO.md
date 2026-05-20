@@ -1,56 +1,59 @@
 # TODO — Ze-Hierarchy
 
-## Фаза 1: Симуляция (v3 — звук + столкновения)
+## Phase 1: Simulation (DONE)
 
-- [x] CONCEPT.md (4 итерации PR)
-- [x] PARAMETERS.md (звук, радио, 2 группы)
-- [x] **simulator/bot.py** — LED, звук (piezo), фототаксис + фонотаксис, random walk
-- [x] **simulator/arena.py** — арена, градиент света, градиент звука, стены
-- [ ] **simulator/physics.py** — столкновения (repulsion при контакте)
-- [ ] **simulator/run.py** — запуск с звуком
-- [ ] **analysis/metrics.py** — HI, R_leader, τ_conv
-- [ ] **analysis/visualize.py** — анимация с шумом и светом
-- [ ] Проверить: HI > 0.5 при [0, 30] дней? HI ≈ 0.5 при [0, 0] дней?
-- [ ] Проверить: эффект не от вибрационного миллинга (Mahadevan 2012)
+- [x] CONCEPT.md (3x peer review)
+- [x] PARAMETERS.md (LED, buzzer, radio, 2 groups)
+- [x] simulator/bot.py — LED, piezo, phototaxis, repulsor, random walk
+- [x] simulator/arena.py — arena, light gradient, sound repulsor, walls
+- [x] simulator/physics.py — collision repulsion model
+- [x] simulator/run.py — run simulation
+- [x] analysis/metrics.py — HI, R_leader, τ_conv
+- [x] analysis/visualize.py — animation, plots
+- [x] analysis/run_30_seeds.py — batch statistics
+- [x] HI max = 0.532 (proof of concept)
+- [x] Control tests: HI ≈ 0.5
 
-## Фаза 2: Прототип (железо, v3)
+## Phase 2: Prototype
 
-- [ ] **hardware/schematic.md** — принципиальная схема
-- [ ] **hardware/bom.md** — Bill of Materials ($566)
-- [ ] **hardware/README.md** — инструкция
-- [ ] Собрать 1 прототип
-- [ ] Откалибровать RC-таймер (измерить V_cond через ADC ESP32)
-- [ ] Проверить ESP-NOW (передача ID, возраста, V_cond)
-- [ ] Проверить пьезо-зуммер (громкость vs возраст)
-- [ ] Проверить фонотаксис (бот следует за зуммером)
+- [ ] Build 1 prototype breadboard
+- [ ] Calibrate RC timer (measure V_cap via ESP32 ADC)
+- [ ] Test ESP-NOW TDMA (2→120 devices)
+- [ ] Test piezo buzzer (frequency vs age)
+- [ ] Test phototaxis (old bot follows bright LED)
+- [ ] Test sound repulsor (bots avoid collisions)
 
-## Фаза 3: Пилот
+## Phase 3: Pilot
 
-- [ ] Собрать 30 ботов (2 группы × 15)
-- [ ] Тест A: все одного возраста
-- [ ] Тест C: 15 молодых + 15 старых
-- [ ] Тест D: заглушить LED и зуммер
-- [ ] Запись: камера + радио + микрофонный массив
+- [ ] Build 30 bots (15 new + 15 old)
+- [ ] Test A: all same age
+- [ ] Test C: 15 new + 15 old
+- [ ] Test D: LED + buzzer off
+- [ ] Record: camera + radio + microphone array
+- [ ] Compute HI from real data
 
-## Фаза 4: Полный эксперимент
+## Phase 4: Full Experiment
 
-- [ ] 120 ботов (2 × 60)
-- [ ] Все 6 контрольных тестов (A–F)
-- [ ] Слепой анализ
-- [ ] Статистика (HI, t-test, Cohen's d)
+- [ ] 120 bots
+- [ ] All control tests A–F
+- [ ] Blind analysis
+- [ ] Statistics (HI, t-test, Cohen's d)
 
-## Фаза 5: Анализ и публикация
+## Phase 5: Publication
 
-- [ ] Написать статью
-- [ ] Data + code — открытый репозиторий
-- [ ] arXiv / preprint
+- [ ] HardwareX paper (open hardware design)
+- [ ] arXiv preprint
+- [ ] Dataset on Zenodo
 
-## После peer-review (2026-05-20) — сделано
+## After Peer Review (complete)
 
-- [x] Добавлена радио-идентификация (ESP-NOW)
-- [x] Добавлен звук (пьезо-зуммер, фонотаксис)
-- [x] В 2 раза больше ботов (60 на группу вместо 30)
-- [x] Qi-зарядка заменена на сменные батареи
-- [x] Разброс JFET → LM393 компаратор
-- [x] Балласт до одинаковой массы 15 г
-- [x] Контрольные тесты A–F
+- [x] Radio identification (ESP-NOW TDMA)
+- [x] Sound (piezo, repulsor)
+- [x] 2×60 instead of 4×30
+- [x] Qi → swappable batteries
+- [x] JFET → LM393 comparator
+- [x] Ballast to 15g
+- [x] Control tests A–F
+- [x] English documentation
+- [x] GitHub: https://github.com/djabbat/ze-hierarchy
+- [x] Grant: Shuttleworth Flash Grant submitted

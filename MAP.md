@@ -1,62 +1,61 @@
-# Ze-Hierarchy — Карта проекта
+# MAP — Ze-Hierarchy
 
-**Проверка Ze-эффекта:** иерархия следования в колонии RNG-автоматов разного физического возраста.
+**Project map: testing Ze effect via age-based hierarchy in bristlebot swarms.**
 
-## Структура
+## Structure
 
 ```
 Ze-Hierarchy/
 │
-├── CONCEPT.md          ← концепция эксперимента (Ze-интервенция → иерархия)
-├── PARAMETERS.md       ← численные параметры (N, возраст, RC, фототаксис)
-├── TODO.md             ← план работ (симуляция → прототип → эксперимент)
-├── MAP.md              ← этот файл (карта)
-├── STATE.md            ← текущий статус
-├── MEMORY.md           ← история решений, запреты
+├── README.md           ← Overview (English)
+├── CONCEPT.md          ← Full concept (hypothesis, design, equations)
+├── PARAMETERS.md       ← Numerical parameters
+├── TODO.md             ← Task plan
+├── MAP.md              ← This file
+├── STATE.md            ← Current status
+├── MEMORY.md           ← Decision history
+├── GRANTS.md           ← Funding sources
 │
-├── _pi.md              ← правила для pi-агента
+├── simulator/          ← Python simulation
+│   ├── bot.py          ← Robot model (RC age, LED, buzzer)
+│   ├── arena.py        ← Arena (light gradient, repulsor)
+│   ├── physics.py      ← Collision physics
+│   └── run.py          ← Run simulation
 │
-├── simulator/          ← Python-симуляция
-│   ├── bot.py          ← модель бота (RC-возраст, LED, random walk)
-│   ├── arena.py        ← арена (60×60, градиент света, стены)
-│   ├── physics.py      ← физика: движение, столкновения (пока нет)
-│   └── run.py          ← запуск: N ботов, T секунд, запись
-│
-├── analysis/           ← анализ данных
+├── analysis/           ← Metrics and visualization
 │   ├── metrics.py      ← HI, R_leader, τ_conv
-│   └── visualize.py    ← анимация, heatmap
+│   ├── visualize.py    ← Animation, heatmaps
+│   └── run_30_seeds.py ← Batch run for statistics
 │
-├── hardware/           ← железо
-│   ├── README.md       ← спецификация
-│   ├── schematic.md    ← схема
-│   └── bom.md          ← Bill of Materials
+├── hardware/           ← Hardware prototype
+│   ├── README.md       ← Spec
+│   ├── bom.md          ← Bill of Materials ($675)
+│   └── schematic.md    ← Circuit diagram
 │
-└── refs/               ← ссылки, заметки (будущее)
+└── data/               ← Simulation data (gitignored)
 ```
 
-## Внешние связи
+## External links
 
-| Связь | Файл |
+| Link | Description |
 |---|---|
-| Ze Vectors Theory | `../README.md` |
-| Эксперимент Пьоша | `../docs/Peoch_Experiment_and_Ze.md` |
-| Пространство как ошибка Ze | `../docs/Space_As_Ze_Error.md` |
-| Коллективный RNG-эксперимент | `../docs/Experiment_Collective_RNG_Automata.md` |
+| `../docs/Peoch_Experiment_and_Ze.md` | René Peoc'h experiment reinterpretation |
+| `../docs/Space_As_Ze_Error.md` | Space as Ze error |
+| `../README.md` | Ze Vectors Theory |
+| https://github.com/djabbat/ze-hierarchy | Public repository |
 
-## Статус файлов
+## File status
 
-| Файл | Статус |
+| File | Status |
 |---|---|
-| CONCEPT.md | ✅ Готов |
-| PARAMETERS.md | ✅ Готов |
-| TODO.md | ✅ Готов |
-| MAP.md | ✅ Этот файл |
-| STATE.md | 🔧 Создаётся |
-| MEMORY.md | 🔧 Создаётся |
-| _pi.md | 🔧 Создаётся |
-| simulator/bot.py | ✅ Готов |
-| simulator/arena.py | ✅ Готов |
-| simulator/run.py | 🔧 Создаётся |
-| analysis/metrics.py | ❌ Не создан |
-| analysis/visualize.py | ❌ Не создан |
-| hardware/* | ❌ Не создан |
+| README.md | ✅ English |
+| CONCEPT.md | ✅ English |
+| PARAMETERS.md | ✅ English |
+| TODO.md | ✅ English |
+| MAP.md | ✅ This file |
+| STATE.md | ✅ English |
+| MEMORY.md | ✅ English |
+| GRANTS.md | ✅ English |
+| simulator/* | ✅ Python (comments in English) |
+| analysis/* | ✅ Python (comments in English) |
+| hardware/* | ✅ English |

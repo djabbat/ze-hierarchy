@@ -1,137 +1,93 @@
-# Гранты и фонды — Ze-Hierarchy
+# Grants & Funding — Ze-Hierarchy
 
-**Что ищем:** $5K–$50K на hardware (120 ботов + арена + камера), публикацию,  
-открытые исходники, без привязки к университету.
+**Target:** $5K–$50K for hardware (120 bots + arena + camera), publication, open source, no university affiliation.
 
 ---
 
 ## 1. Shuttleworth Foundation — Flash Grant
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| **Сумма** | **$5,000** — одномоментно, без отчётов |
-| **Тема** | Открытые технологии, необычные идеи |
-| **Deadline** | Rolling (в любой момент) |
-| **Подача** | 1 страница — что хотите сделать и почему это важно |
-| **Связь с проектом** | Открытое железо, симуляция, необычная гипотеза (Ze) |
-| **APC** | Можно включить публикацию в $5K |
-| **Сайт** | shuttleworthfoundation.org |
+| **Amount** | **$5,000** — lump sum, no reporting |
+| **Topic** | Open technology, unconventional ideas |
+| **Deadline** | Rolling |
+| **Submission** | 1 page — what and why |
+| **Fit** | Open hardware, weird hypothesis (Ze), independent researcher |
+| **APC** | Can include publication in $5K |
+| **Site** | shuttleworthfoundation.org |
 
-**Шансы:** высокие. Shuttleworth любит странные, но обоснованные проекты.
+**Status:** Submitted 2026-05-20 ✅
 
 ---
 
-## 2. Prototype Fund (Open Knowledge Foundation, Германия)
+## 2. Prototype Fund (Open Knowledge Foundation, Germany)
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| **Сумма** | **€47,500** (~$52K) |
-| **Тема** | Open Source Software / Hardware, гражданская наука |
-| **Deadline** | 2 раунда в год (следующий ~ сентябрь 2026) |
-| **Условия** | Физлицо или команда до 3 человек. Нужен план на 6 месяцев |
-| **Покрытие** | Разработка, железо, публикация |
-| **Сайт** | prototypefund.de |
+| **Amount** | **€47,500** (~$52K) |
+| **Topic** | Open Source Software / Hardware, citizen science |
+| **Deadline** | 2 rounds/year (next ~ September 2026) |
+| **Requirements** | Individual or team ≤ 3. 6-month plan |
+| **Fit** | Perfect: open hardware + robotics + citizen science |
+| **Site** | prototypefund.de |
 
-**Шансы:** средние. Немецкий фонд, но проекты могут быть на английском.  
-Ze-Hierarchy — идеальный fit: open hardware + robotics + citizen science.
+**Status:** Next round ~September 2026.
 
 ---
 
-## 3. NLnet Foundation / NGI0 — Next Generation Internet
+## 3. NLnet Foundation / NGI0
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| **Сумма** | **€10K–€50K** |
-| **Тема** | Открытые технологии, децентрализация, приватность |
-| **Deadline** | Rolling (4 раунда в год) |
-| **Покрытие** | Разработка, hardware, публикация |
-| **Связь** | ESP-NOW, открытый протокол, федеративное обучение |
-| **Сайт** | nlnet.nl |
+| **Amount** | **€10K–€50K** |
+| **Topic** | Open technology, decentralization, privacy |
+| **Deadline** | Rolling (4 rounds/year) |
+| **Fit** | Open protocol, ESP-NOW, federated learning |
+| **Site** | nlnet.nl |
 
-**Шансы:** средние. Если подать как "open source robotics protocol".
+**Status:** Rolling.
 
 ---
 
 ## 4. GOSH — Gathering for Open Science Hardware
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| **Сумма** | **$5K–$20K** |
-| **Тема** | Открытое научное оборудование |
-| **Deadline** | Раз в год (обычно весной) |
-| **Связь** | Весь проект — open hardware bristlebot |
-| **Сайт** | openhardware.science |
+| **Amount** | **$5K–$20K** |
+| **Topic** | Open scientific equipment |
+| **Deadline** | Yearly (usually spring) |
+| **Fit** | Perfect: bristlebots as open science toolkit |
+| **Site** | openhardware.science |
 
-**Шансы:** высокие. Идеальный fit: bristlebots как open science toolkit.
+**Status:** Spring 2027.
 
 ---
 
-## 5. Mozilla Foundation — Community Grants
+## 5. Publication (free)
 
-| Параметр | Значение |
-|---|---|
-| **Сумма** | **$5K–$25K** |
-| **Тема** | Здоровье интернета, открытые технологии |
-| **Deadline** | Раз в год |
-| **Сайт** | foundation.mozilla.org |
-
-**Шансы:** низкие. Не совсем их тема.
-
----
-
-## 6. EIC Pathfinder — Open (Horizon Europe)
-
-| Параметр | Значение |
-|---|---|
-| **Сумма** | **€3–4M** (но можно запросить меньше) |
-| **Тема** | Любая прорывная технология |
-| **Deadline** | Обычно февраль/сентябрь |
-| **Условия** | Консорциум из 3+ организаций из 3+ стран ЕС |
-| **Связь** | Слишком большой для этого проекта |
-| **Сайт** | eic.ec.europa.eu |
-
-**Шансы:** низкие. Слишком бюрократично для $5K проекта.
-
----
-
-## 7. Прямое финансирование публикации
-
-| Вариант | Цена | Условия |
+| Venue | APC | Conditions |
 |---|---|---|
-| **arXiv.org** | **Бесплатно** | Препринт, без рецензии |
-| **Open Research Europe** | **Бесплатно** | Для грантополучателей Horizon Europe |
-| **F1000Research** | ~$1,000 | Open access, peer review после публикации |
-| **PLOS ONE** | ~$2,000 | Могут дать waiver (fee waiver request) |
-| **Science Robotics** | APC нет | Но публикация — только по приглашению |
-| **Nature Scientific Reports** | ~$2,500 | APC, waiver возможен |
-| **HardwareX (Elsevier)** | **Бесплатно** | Специализируется на open hardware! |
+| **HardwareX (Elsevier)** | **$0** | Specializes in open hardware |
+| **arXiv.org** | **$0** | Preprint, no review required |
+| **Zenodo** | **$0** | Dataset archiving |
+| **Open Research Europe** | **$0** | For Horizon Europe grantees |
 
-**Лучший вариант:** опубликовать дизайн в **HardwareX** (бесплатно) +  
-препринт на **arXiv** (бесплатно) + данные в **Zenodo** (бесплатно).  
-Никаких APC.
+**Recommendation:** publish hardware design in HardwareX (free) + preprint on arXiv (free) + data on Zenodo (free). Zero APC.
 
 ---
 
-## 8. Сравнение
+## Comparison
 
-| Фонд | Сумма | Сложность | Шансы | Покрывает APC | Примечание |
+| Fund | Amount | Complexity | Odds | Covers APC | Notes |
 |---|---|---|---|---|---|
-| **Shuttleworth Flash** | $5K | ★ | Высокие | ✅ | Самый быстрый |
-| **GOSH** | $5-20K | ★★ | Высокие | ✅ | Open hardware |
-| **Prototype Fund** | €47K | ★★★ | Средние | ✅ | 6 мес работы |
-| **NLnet** | €10-50K | ★★★ | Средние | ✅ | Open tech |
-| **Mozilla** | $5-25K | ★★★ | Низкие | ⚠️ | Не их тема |
-| **EIC Pathfinder** | €3M+ | ★★★★★ | Очень низкие | ✅ | Слишком большой |
+| **Shuttleworth Flash** | $5K | ★ | High | ✅ | Fastest |
+| **GOSH** | $5-20K | ★★ | High | ✅ | Open hardware |
+| **Prototype Fund** | €47K | ★★★ | Medium | ✅ | 6 months |
+| **NLnet** | €10-50K | ★★★ | Medium | ✅ | Open tech |
 
----
+## Recommendation
 
-## Рекомендация
-
-**Подавать в порядке приоритета:**
-
-1. **Shuttleworth Flash Grant** ($5K) — сегодня. 1 страница. Покроет прототип + arXiv.
-2. **GOSH** ($5-20K) — в следующую волну. Покроет 30 ботов.
-3. **HardwareX** (бесплатно) — публикация дизайна.
-4. **Prototype Fund** (€47K) — если нужны все 120 ботов.
-
-**Итого:** $5K на прототип + $0 на публикацию (HardwareX + arXiv).
+1. **Shuttleworth Flash Grant** ($5K) ✅ submitted
+2. **GOSH** ($5-20K) — next spring
+3. **HardwareX** (free) — publication
+4. **Prototype Fund** (€47K) — full 120-bot experiment
