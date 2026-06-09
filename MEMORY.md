@@ -68,8 +68,38 @@
 
 ---
 
+## 2026-05-22: NLnet Commons Fund — заявка зарегистрирована
+
+**Событие:** Получено подтверждение от NLnet Foundation (dashboard@nlnet.nl) о регистрации заявки на грант Commons Fund.
+
+**Код заявки:** 2026-06-21e
+**Проект:** Ze-Hierarchy: Age-Based Physical Hierarchy in Identical Random-Walk Robots
+**Сумма:** €4,675
+**Организация:** Georgia Longevity Alliance
+**Статус:** Зарегистрирована, ожидание письма после дедлайна (ориентировочно ~21 июня 2026)
+
+**Решение:** Добавить задачу в Plane для отслеживания. Обновить STATE.md и TODO.md.
+**Ban:** Не заливать в Outline без команды пользователя.
+
+---
+
+## 2026-06-01 — Multilayer Age Model introduced
+
+**Решение:** Расширить концепцию возраста в Ze-Hierarchy с плоской (τ_create) до четырёхслойной.
+
+**Изменения в концепте:**
+- Раздел 6.1: Expanded Test Matrix — тесты F1–F4, G (вместо одного F)
+- Раздел 11: Multilayer Age Model Extension (полное описание)
+- Новый параметр τ_profile для каждого бота
+- ESP-NOW пакет расширен с 6B до 10B (добавлены batch IDs компонентов)
+
+**Ban:** Не заменять τ_profile одним числом. Всегда хранить вектор возрастов.
+**Ban:** Не пропускать тесты F2-F4, G — они критичны для верификации модели.
+
 ## Open Questions
 
 - Is vibrational clustering (Mahadevan 2012) necessary for HI > 0.5 in real bristlebots?
 - Optimal K_photo for real photodiodes?
 - Does ESP-NOW TDMA work at 120 devices without packet loss?
+- Can τ_sick be measured in simulation before hardware?
+- Which component carries age memory best — silicon, solder, or plastic?

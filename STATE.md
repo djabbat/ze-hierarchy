@@ -1,7 +1,7 @@
 # STATE — Ze-Hierarchy
 
-**Date:** 2026-05-20
-**Phase:** 1 — Simulation (complete)
+**Date:** 2026-05-22
+**Phase:** 1 — Simulation (complete); Grant submitted
 
 ## Key Result
 
@@ -46,4 +46,14 @@ Bristlebot random walk cannot form a stable cluster in simulation. New bots spre
 
 - GitHub: https://github.com/djabbat/ze-hierarchy
 - Grant: Shuttleworth Flash Grant (submitted 2026-05-20)
+- **Grant: NLnet Commons Fund (code 2026-06-21e, submitted 2026-05-20, confirmed 2026-05-22)** — €4,675
 - Publication: HardwareX + arXiv (planned)
+
+## Grant Status
+
+| Грант | Статус | Сумма | Код |
+|---|---|---|---|
+| Shuttleworth Flash Grant | Submitted 2026-05-20 | — | — |
+| NLnet Commons Fund | ✅ **Confirmed registration** 2026-05-22 | €4,675 | 2026-06-21e |
+
+**Следующий шаг:** Ждать письма после дедлайна (~21 июня 2026) с информацией о ревью.

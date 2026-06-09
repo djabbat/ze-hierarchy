@@ -45,6 +45,13 @@
 - [ ] arXiv preprint
 - [ ] Dataset on Zenodo
 
+## Grant Tracking
+
+- [x] Shuttleworth Flash Grant — submitted (2026-05-20)
+- [x] NLnet Commons Fund — заявка зарегистрирована (2026-05-22, код 2026-06-21e)
+- [ ] NLnet — дождаться письма после дедлайна (~21 июня 2026)
+- [ ] NLnet — если одобрят, обновить TODO и начать Phase 2 (Prototype)
+
 ## After Peer Review (complete)
 
 - [x] Radio identification (ESP-NOW TDMA)

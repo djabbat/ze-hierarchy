@@ -40,13 +40,13 @@ The hypothesis: *new agents intervene (they have no world model), old agents mon
 
 ## About Me
 
-I'm Jaba Tkemaladze, MD, president of Georgia Longevity Alliance (R&D NGO in Abastumani, Georgia). Independent researcher, no university affiliation. ORCID: 0000-0001-8651-7243.
+I'm Jaba Tqemaladze, MD, president of Georgia Longevity Alliance (R&D NGO in Abastumani, Georgia). Independent researcher, no university affiliation. ORCID: 0000-0001-8651-7243.
 
 No salary, no overhead — every dollar goes to hardware.
 
 ---
 
 Best regards,
-Jaba Tkemaladze
+Jaba Tqemaladze
 jaba@longevity.ge
 +995 555 185161

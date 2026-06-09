@@ -11,7 +11,7 @@
 >
 > ---
 
-**Parent:** Ze → LongevityCommon
+**Parent:** Ze → LC
 **CONCEPT.md:** CONCEPT.md
 **Created:** 2026-05-20
 **Status:** Phase 1 — Simulation
@@ -34,17 +34,27 @@
 - `analysis/` — метрики и визуализация
 - `hardware/` — железо
 
+## Гранты
+
+| Грант | Статус | Сумма |
+|---|---|---|
+| Shuttleworth Flash Grant | ✅ Submitted (2026-05-20) | — |
+| NLnet Commons Fund | ✅ **Confirmed registration** (2026-05-22) | €4,675 |
+
+**Код NLnet:** 2026-06-21e
+**Дедлайн NLnet:** ~21 июня 2026 — ждать письма о ревью
+
 ## Запреты
 
 - ❌ Не заливать в Outline/Plane без прямой команды пользователя
 - ❌ Не заменять возраст разрядом батарейки (только RC-таймер)
-- ❌ Не смешивать с другими подпроектами Ze (Poincare, website)
+- ❌ Не смешивать с другими подпроектами Ze (D_Ze, CHSH)
 
 ## Команды
 
 ```bash
 # Запустить симуляцию
-cd ~/Desktop/LongevityCommon/Ze/Ze-Hierarchy
+cd ~/Desktop/LC/Ze/Ze-Hierarchy
 python3 -m simulator.run
 
 # Визуализировать
