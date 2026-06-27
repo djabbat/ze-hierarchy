@@ -1,5 +1,7 @@
 # TODO — Ze-Hierarchy
 
+> **📄 Статьи и публикации:** см. `~/Desktop/Services/publications/PUBLICATIONS_TRACKER.md`
+
 ## Phase 1: Simulation (DONE)
 
 - [x] CONCEPT.md (3x peer review)
@@ -42,7 +44,6 @@
 ## Phase 5: Publication
 
 - [ ] HardwareX paper (open hardware design)
-- [ ] arXiv preprint
 - [ ] Dataset on Zenodo
 
 ## Grant Tracking
